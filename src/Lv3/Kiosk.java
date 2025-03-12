@@ -19,7 +19,6 @@ public class Kiosk {
     public void start(){
         int quit;
         do {
-
             for (MenuItem menuItem : hamburgerMenu) {
                 menuItem.printMenuItem();
             }
