@@ -2,6 +2,7 @@ package Lv3_5;
 
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,10 +30,20 @@ public class Kiosk {
 
     public void start() {
         int quit;
+        int menuNum=1;
         do {
             System.out.println("1: 햄버거, 2: 음료, 3 : 디저트");
-            int menuNum = scanner.nextInt();
-            scanner.nextLine();
+            while(true) {
+                try {
+                    System.out.print("숫자를 입력해주세요 : ");
+                    menuNum= scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력해주세요");
+                    scanner.nextLine();
+                }
+            }
             switch (menuNum) {
                 case 1:
                     for (MenuItem menuItem : hamburgerMenu) {
@@ -49,10 +60,20 @@ public class Kiosk {
                         menuItem.printMenuItem();
                     }
                     break;
+                default:
+                    System.out.println("범위를 벗어났습니다.");
             }
-            System.out.print("숫자를 입력해주세요 : ");
-            quit = scanner.nextInt();
-            scanner.nextLine();
+            while(true) {
+                try {
+                    System.out.print("숫자를 입력해주세요 : ");
+                    quit = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력해주세요");
+                    scanner.nextLine();
+                }
+            }
         } while (quit != 0);
     }
 }

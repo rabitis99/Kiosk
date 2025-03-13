@@ -3,6 +3,7 @@ package Lv3;
 import Lv2.MenuItem;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,10 +22,17 @@ public class Kiosk {
         do {
             for (MenuItem menuItem : hamburgerMenu) {
                 menuItem.printMenuItem();
+            }while(true) {
+                try {
+                    System.out.print("숫자를 입력해주세요 : ");
+                    quit = scanner.nextInt();
+                    scanner.nextLine();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("숫자만 입력해주세요");
+                    scanner.nextLine();
+                }
             }
-            System.out.print("숫자를 입력해주세요 : ");
-            quit = scanner.nextInt();
-            scanner.nextLine();
-        } while (quit != 0);
+        }while (quit != 0);
     }
 }

@@ -18,6 +18,7 @@ public class kioskFuncion {
         }
     }
     public void printSelction(Menu menu,int i){
+
         String name = menu.getMenuItems().get(i).getName();
         double price =menu.getMenuItems().get(i).getPrice();
         System.out.println(name+price+"을 선택하셨습니다.");
