@@ -22,17 +22,30 @@ public class Kiosk {
         do {
             for (MenuItem menuItem : hamburgerMenu) {
                 menuItem.printMenuItem();
-            }while(true) {
-                try {
-                    System.out.print("숫자를 입력해주세요 : ");
-                    quit = scanner.nextInt();
-                    scanner.nextLine();
-                    break;
-                } catch (InputMismatchException e) {
-                    System.out.println("숫자만 입력해주세요");
-                    scanner.nextLine();
-                }
             }
-        }while (quit != 0);
+            System.out.print("숫자를 입력해주세요 : ");
+            quit = scanner.nextInt();
+            scanner.nextLine();
+            switch (quit) {
+
+                case 0:
+                    break;
+                case 1:
+                    hamburgerMenu.get(0).printMenuItem();
+                    break;
+                case 2:
+                    hamburgerMenu.get(1).printMenuItem();
+                    break;
+                case 3:
+                    hamburgerMenu.get(2).printMenuItem();
+                    break;
+                case 4:
+                    hamburgerMenu.get(3).printMenuItem();
+                    break;
+            }
+            System.out.println(" ====================================" );
+
+        } while (quit != 0);
     }
 }
+
