@@ -16,8 +16,7 @@ public class Main {
             quit = scanner.nextInt();
             scanner.nextLine();
 
-            switch(quit){
-
+            switch (quit) {
                 case 0:
                     break;
                 case 1:
@@ -32,10 +31,11 @@ public class Main {
                 case 4:
                     System.out.println("4. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거");
                     break;
-=======
-            if(quit==0){
+                default:
+                    System.out.println("잘못된 수입니다");
+            }
+            if (quit == 0) {
                 break;
->>>>>>> aa6c279f492462db8267d54d2e55c56cd40f66d0
             }
         }
     }
