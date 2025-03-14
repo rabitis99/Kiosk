@@ -10,9 +10,9 @@ public class MenuDataBase {
     private List<MenuItem> dessertMenus = new ArrayList<>();
     private List<MenuItem> drinkMenus = new ArrayList<>();
 
-    private Menu burgers=new Menu("burger",  hamburgerMenu);
-    private Menu drinks=new Menu("drink",  drinkMenus);
-    private Menu desserts=new Menu("dessert", dessertMenus);
+    private Menu burgers=new Menu("[  burger menu  ]",  hamburgerMenu);
+    private Menu drinks=new Menu("[  drink menu  ]",  drinkMenus);
+    private Menu desserts=new Menu("[  dessert menu  ]", dessertMenus);
 
     public MenuDataBase() {
 

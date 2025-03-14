@@ -29,34 +29,40 @@ public class Cart {
             //하나의 연산으로 실행할 수 없음->가능한지 여부가 궁금
             List<Integer> cartPricetlist = cartlist.stream()
                     .map(MenuItem::getPrice)
-                    .mapToInt(price-> (int) (price*1000))
+                    .mapToInt(price -> (int) (price * 1000))
                     .boxed()
                     .toList();
-            List<String> cartNamelist=cartlist.stream()
+            List<String> cartNamelist = cartlist.stream()
                     .map(MenuItem::getName)
                     .toList();
-            for (int i=0; i<cartNamelist.size();i++){
-                System.out.println((i+1)+" ."+cartNamelist.get(i)+" "+cartPricetlist.get(i)+" 원");
+            for (int i = 0; i < cartNamelist.size(); i++) {
+                System.out.println((i + 1) + " ." + cartNamelist.get(i) + " " + cartPricetlist.get(i) + " 원");
             }
         }
     }
 
     // 특정 인덱스의 아이템을 장바구니에서 제거
     public void removeCart(int index) {
-        if (index > 0 && index < cartlist.size()) {
-            index-=1;
-            System.out.println(cartlist.get(index).getName() + "을(를) 삭제했습니다.");
-            cartlist.remove(index);
+        if (index > 0 && (index <= cartlist.size())) {
+            System.out.println(cartlist.get(index - 1).getName() + "을(를) 삭제했습니다.");
+            cartlist.remove(index-1);
+        } else if (index == 0) {
+            System.out.println("주문 삭제가 취소됐습니다.");
         } else {
-            System.out.println("잘못된 값입니다.");
+            System.out.println("잘못된 입력값입니다.");
         }
     }
-    public void calculateTotalprice(){
+    public void totalreomeCart(){
+        cartlist.clear();
+    }
+
+    public void calculateTotalprice() {
         total = (int) cartlist.stream()
                 .map(MenuItem::getPrice)
-                .mapToDouble(price->(price*1000))// 정수형 변환
+                .mapToDouble(price -> (price * 1000))// 정수형 변환
                 .sum();
     }
+
     // 장바구니 리스트 반환
     public List<MenuItem> getCartlist() {
         return cartlist;
@@ -66,10 +72,12 @@ public class Cart {
     public int getTotal() {
         return total;
     }
+
     //장바구니 값 설정
     public void setCartlist(List<MenuItem> cartlist) {
         this.cartlist = cartlist;
     }
+
     // 전체 값 설정
     public void setTotal(int total) {
         this.total = total;

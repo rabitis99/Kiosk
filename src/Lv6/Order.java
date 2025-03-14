@@ -55,12 +55,13 @@ public class Order extends InputValidator {
      * @return 계속 진행 여부
      */
     private boolean delelMenu() {
-        System.out.println("1 : 메뉴 삭제  2: 취소");
+        System.out.print("1 : 메뉴 삭제  2: 취소");
         int cancelChoiceNum = getValidInt(scanner);
 
         switch (cancelChoiceNum) {
             case 1:
                 // 삭제할 메뉴 번호 입력받기
+                System.out.print("삭제할 메뉴의 번호를 입력해주세요");
                 int cancelNum = getValidInt(scanner);
                 cart.removeCart(cancelNum);
                 break;

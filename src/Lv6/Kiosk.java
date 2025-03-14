@@ -65,11 +65,7 @@ public class Kiosk extends InputValidator {
 
                 case 5:
                     if (!cart.getCartlist().isEmpty()) {
-                        List<MenuItem> cartlist =cart.getCartlist();
-                        for (int i=0; i<cartlist.size();i++){
-                            cartlist.remove(i);
-                        }
-                        cart.setCartlist(cartlist);// 장바구니 비우기
+                       cart.totalreomeCart();// 장바구니 비우기
                         System.out.print("장바구니가 비워졌습니다.");
                     } else {
                         System.out.print("⚠ 선택하신 제품이 없습니다\n");
@@ -89,7 +85,7 @@ public class Kiosk extends InputValidator {
                                 int menuNum2 = getValidInt(scanner) - 1;
                                 menuItem = kioskFunction.printSelection(menu, menuNum2);
                                 break;
-                            } catch (IllegalArgumentException e) {
+                            } catch (Exception e) {
                                 System.out.println(e.getMessage());
                                 stack++;
                                 if(stack==4){
