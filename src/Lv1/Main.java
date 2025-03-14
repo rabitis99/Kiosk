@@ -15,6 +15,7 @@ public class Main {
             System.out.println("0. 종료      | 종료");
             quit = scanner.nextInt();
             scanner.nextLine();
+
             switch(quit){
 
                 case 0:
@@ -31,6 +32,10 @@ public class Main {
                 case 4:
                     System.out.println("4. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거");
                     break;
+=======
+            if(quit==0){
+                break;
+>>>>>>> aa6c279f492462db8267d54d2e55c56cd40f66d0
             }
         }
     }
